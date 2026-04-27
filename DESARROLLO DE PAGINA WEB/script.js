@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function calcularPresupuesto() {
     // 1. Capturamos los elementos del HTML (DOM)
     const selectServicio = document.getElementById('servicio');
@@ -33,4 +34,51 @@ function calcularPresupuesto() {
         Total a pagar: S/ ${total.toFixed(2)} 
         ${mensajeExtra}
     `;
+=======
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("#cotizador button")
+        .addEventListener("click", calcularPresupuesto);
+});
+
+function calcularTotal(precio, cantidad) {
+    let total = precio * cantidad;
+    let descuento = false;
+
+    if (cantidad >= 3) {
+        total *= 0.90;
+        descuento = true;
+    }
+
+    return { total, descuento };
+}
+
+function calcularPresupuesto() {
+    const selectServicio = document.getElementById('servicio');
+    const inputCantidad = document.getElementById('cantidad');
+    const areaResultado = document.getElementById('resultado');
+    const textoResultado = document.getElementById('detalle-cotizacion');
+
+    const precio = parseFloat(selectServicio.value);
+    const cantidad = parseInt(inputCantidad.value);
+    const nombreServicio = selectServicio.options[selectServicio.selectedIndex].text;
+
+    if (!precio || isNaN(cantidad) || cantidad <= 0) {
+        alert("Por favor, completa todos los campos correctamente.");
+        return;
+    }
+
+    const { total, descuento } = calcularTotal(precio, cantidad);
+
+    let mensaje = `
+        Servicio: ${nombreServicio.split('(')[0]} <br>
+        Total a pagar: S/ ${total.toFixed(2)}
+    `;
+
+    if (descuento) {
+        mensaje += "<br><span style='color: green;'>¡Descuento de flota (10%) aplicado!</span>";
+    }
+
+    areaResultado.style.display = "block";
+    textoResultado.innerHTML = mensaje;
+>>>>>>> 794c6b7 (Actualización completa del proyecto AutoElite)
 }
