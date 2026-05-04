@@ -299,5 +299,24 @@
 
     <script src="script.js"></script>
 
+    <!-- Firebase -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyAZJrnHtR4NNZNwDoOXYigkFuGUAx4P3Hg",
+        authDomain: "autoelite-web-2026-8e3b6.firebaseapp.com",
+        projectId: "autoelite-web-2026-8e3b6",
+        storageBucket: "autoelite-web-2026-8e3b6.appspot.com",
+        messagingSenderId: "938183853221",
+        appId: "1:938183853221:web:7b928fcefaa2871193f94c",
+        measurementId: "G-MMH5F9Y7J9"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+
 </body>
 </html>
