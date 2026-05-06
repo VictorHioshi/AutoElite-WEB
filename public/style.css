@@ -233,12 +233,11 @@ p:last-child {
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--navbar-altura);
+  height: auto;
+  min-height: 70px;
   background-color: var(--blanco);
   z-index: var(--z-navbar);
   transition: var(--transicion);
-  display: flex;
-  align-items: center;
 }
 
 .navbar.scrolled {
