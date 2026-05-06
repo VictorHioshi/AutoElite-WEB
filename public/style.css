@@ -321,6 +321,18 @@ p:last-child {
   width: 100%;
 }
 
+/* Fix: Enlace de navegacion con clases de Tailwind */
+.nav-links a {
+  color: #334155 !important;
+  font-weight: 500;
+}
+.nav-links a:hover {
+  color: #dc2626 !important;
+}
+.nav-links a.text-red-600 {
+  color: #dc2626 !important;
+  font-weight: 700;
+}
 /* Acciones del navbar (dark mode toggle, CTA) */
 .navbar__actions {
   display: flex;
