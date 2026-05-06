@@ -105,126 +105,48 @@ const testimonios = [
  * Demuestra: parseFloat, parseInt, condicionales, operadores
  */
 function calcularPresupuesto() {
-    // Obtener elementos del DOM
-    const selectServicio = document.getElementById("servicio");
-    const inputCantidad = document.getElementById("cantidad");
-    const divResultado = document.getElementById("resultado");
-    const textoResultado = document.getElementById("detalle-cotizacion");
+    const selectServicio = document.getElementById("servicio-select");
+    const inputCantidad = document.getElementById("vehiculos-count");
+    const resultado = document.getElementById("cotizacion-resultado");
 
-    // Variables: parseFloat convierte string a número decimal
     const precio = parseFloat(selectServicio.value);
-    // parseInt convierte string a número entero
     const cantidad = parseInt(inputCantidad.value);
 
-    // Obtener el texto completo de la opción seleccionada
-    const opcionSeleccionada = selectServicio.options[selectServicio.selectedIndex];
-    const nombreServicio = opcionSeleccionada.text;
+    const nombreServicio = selectServicio.options[selectServicio.selectedIndex].dataset.name;
 
-    // ---- CONDICIONAL: Validación de datos ----
-    // Usa isNaN() para verificar si no es un número
-    // Usa operador lógico OR (||)
     if (isNaN(precio) || precio <= 0) {
-        mostrarError("Por favor, selecciona un servicio válido.");
+        alert("Selecciona un servicio válido");
         return;
     }
 
     if (isNaN(cantidad) || cantidad <= 0) {
-        mostrarError("Por favor, ingresa una cantidad válida de vehículos.");
+        alert("Cantidad inválida");
         return;
     }
 
-    if (cantidad > 50) {
-        mostrarError("Para flotas mayores a 50 vehículos, contáctanos directamente.");
-        return;
-    }
-
-    // ---- OPERADORES ARITMÉTICOS ----
-    // Multiplicación: precio * cantidad
     let subtotal = precio * cantidad;
-    let descuento = 0;
-    let porcentajeDescuento = 0;
-    let descuentoAplicado = false;
-
-    // ---- CONDICIONAL: Descuento por volumen ----
-    // Operador >= (mayor o igual)
-    if (cantidad >= 3 && cantidad < 10) {
-        descuento = subtotal * 0.10; // 10% de descuento
-        porcentajeDescuento = 10;
-        descuentoAplicado = true;
-    } else if (cantidad >= 10) {
-        // Operador lógico AND (&&)
-        descuento = subtotal * 0.15; // 15% de descuento para flotas grandes
-        porcentajeDescuento = 15;
-        descuentoAplicado = true;
-    }
-
-    // Resta: subtotal - descuento
+    let descuento = cantidad >= 3 ? subtotal * 0.10 : 0;
     let total = subtotal - descuento;
 
-    // Mostrar resultado
-    divResultado.style.display = "block";
-    divResultado.classList.add("fade-in");
+    resultado.classList.remove("hidden");
 
-    // ---- TEMPLATE LITERALS (Strings) ----
-    // Usa backticks `` para insertar variables con ${}
-    let mensaje = `
-        <div class="text-left space-y-2">
-            <div class="flex justify-between py-2 border-b">
-                <span class="text-gray-600">Servicio:</span>
-                <span class="font-semibold">${extraerNombreServicio(nombreServicio)}</span>
-            </div>
-            <div class="flex justify-between py-2 border-b">
-                <span class="text-gray-600">Precio unitario:</span>
-                <span class="font-semibold">S/ ${precio.toFixed(2)}</span>
-            </div>
-            <div class="flex justify-between py-2 border-b">
-                <span class="text-gray-600">Cantidad:</span>
-                <span class="font-semibold">${cantidad} vehículo${cantidad > 1 ? "s" : ""}</span>
-            </div>
-            <div class="flex justify-between py-2 border-b">
-                <span class="text-gray-600">Subtotal:</span>
-                <span class="font-semibold">S/ ${subtotal.toFixed(2)}</span>
-            </div>`;
+    document.getElementById("result-servicio").textContent = nombreServicio;
+    document.getElementById("result-precio").textContent = `S/ ${precio.toFixed(2)}`;
+    document.getElementById("result-cantidad").textContent = cantidad;
+    document.getElementById("result-subtotal").textContent = `S/ ${subtotal.toFixed(2)}`;
+    document.getElementById("result-total").textContent = `S/ ${total.toFixed(2)}`;
 
-    // ---- CONDICIONAL: Mostrar descuento ----
-    if (descuentoAplicado) {
-        mensaje += `
-            <div class="flex justify-between py-2 border-b text-green-600">
-                <span>Descuento flota (${porcentajeDescuento}%):</span>
-                <span class="font-semibold">- S/ ${descuento.toFixed(2)}</span>
-            </div>`;
+    const descuentoRow = document.getElementById("descuento-row");
+
+    if (descuento > 0) {
+        descuentoRow.classList.remove("hidden");
+        document.getElementById("result-descuento").textContent = `- S/ ${descuento.toFixed(2)}`;
+    } else {
+        descuentoRow.classList.add("hidden");
     }
-
-    mensaje += `
-            <div class="flex justify-between py-3 text-lg">
-                <span class="font-bold text-red-600">TOTAL:</span>
-                <span class="font-bold text-red-600 text-xl">S/ ${total.toFixed(2)}</span>
-            </div>`;
-
-    // Mensaje adicional según el total
-    // ---- SWITCH: Mensaje según rango de precio ----
-    mensaje += "<div class='mt-4 p-3 rounded bg-blue-50 text-blue-800 text-sm'>";
-    switch (true) {
-        case (total <= 200):
-            mensaje += "<i class='fas fa-info-circle mr-1'></i> ¡Servicio básico al mejor precio!";
-            break;
-        case (total <= 500):
-            mensaje += "<i class='fas fa-star mr-1'></i> ¡Excelente elección para el mantenimiento de tu vehículo!";
-            break;
-        case (total <= 1500):
-            mensaje += "<i class='fas fa-award mr-1'></i> ¡Servicio premium! Tu vehículo quedará impecable.";
-            break;
-        default:
-            mensaje += "<i class='fas fa-crown mr-1'></i> ¡Servicio VIP! Contáctanos para beneficios exclusivos.";
-            break;
-    }
-    mensaje += "</div>";
-
-    // Cerrar el div principal
-    mensaje += "</div>";
-
-    textoResultado.innerHTML = mensaje;
 }
+
+
 
 /**
  * Extrae solo el nombre del servicio sin el precio
@@ -516,13 +438,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Botón calcular del cotizador
-    const btnCalcular = document.getElementById("btn-calcular");
+    const btnCalcular = document.getElementById("calcular-btn");
     if (btnCalcular) {
         btnCalcular.addEventListener("click", calcularPresupuesto);
     }
 
     // Validación en tiempo real del campo cantidad
-    const inputCantidad = document.getElementById("cantidad");
+    const inputCantidad = document.getElementById("vehiculos-count");
     if (inputCantidad) {
         inputCantidad.addEventListener("input", function() {
             // Solo permitir números positivos
