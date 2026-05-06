@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - AutoElite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-sans bg-gray-50 text-gray-800 transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container max-w-7xl mx-auto px-4 flex items-center justify-between py-4">
+            <a href="index.html" class="logo flex items-center">
+                <div class="bg-slate-800 p-2 rounded">
+                    <span class="text-white font-bold text-xl">AUTO</span>
+                    <span class="text-blue-400 font-light text-xl">ELITE</span>
+                </div>
+            </a>
+            <ul class="nav-links hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="index.html" class="hover:text-red-600">Inicio</a></li>
+                <li><a href="servicios.html" class="hover:text-red-600">Servicios</a></li>
+                <li><a href="galeria.html" class="hover:text-red-600">Galer&iacute;a</a></li>
+                <li><a href="nosotros.html" class="text-red-600 font-bold">Sobre Nosotros</a></li>
+                <li><a href="contacto.html" class="hover:text-red-600">Contacto</a></li>
+            </ul>
+            <div class="flex items-center space-x-3">
+                <button id="dark-mode-btn" class="p-2 rounded-full hover:bg-gray-200" title="Modo oscuro">
+                    <i class="fas fa-moon text-lg"></i>
+                </button>
+                <a href="contacto.html" class="btn btn-primary hidden sm:inline-block text-sm">Pedir Cita</a>
+                <button id="menu-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden fixed inset-0 z-50">
+            <div class="absolute inset-0 bg-black/50" id="menu-overlay"></div>
+            <div class="mobile-menu-panel absolute right-0 top-0 h-full w-72 bg-white shadow-xl p-6 transform translate-x-full transition-transform duration-300">
+                <button id="menu-close" class="text-2xl mb-8 float-right"><i class="fas fa-times"></i></button>
+                <div class="clear-both"></div>
+                <ul class="space-y-4 text-lg mt-4">
+                    <li><a href="index.html" class="block py-2 hover:text-red-600 transition">Inicio</a></li>
+                    <li><a href="servicios.html" class="block py-2 hover:text-red-600 transition">Servicios</a></li>
+                    <li><a href="galeria.html" class="block py-2 hover:text-red-600 transition">Galer&iacute;a</a></li>
+                    <li><a href="nosotros.html" class="block py-2 hover:text-red-600 transition">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="block py-2 hover:text-red-600 transition">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-[300px] bg-cover bg-center flex items-center justify-center" style="background-image: url('https://images.unsplash.com/photo-1580273916550-e323be2ae537');">
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="relative z-10 text-center text-white px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-3">Sobre Nosotros</h1>
+            <p class="text-lg md:text-xl text-gray-300">Conoce nuestra historia y pasi&oacute;n automotriz</p>
+        </div>
+    </section>
+
+    <!-- Nuestra Historia -->
+    <section class="py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-slate-800">Nuestra <span class="text-red-600">Historia</span></h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        En <strong class="text-slate-800">2014</strong>, nacimos en el coraz&oacute;n de <strong class="text-slate-800">Arequipa</strong> con una misi&oacute;n clara: ofrecer un servicio automotriz de excelencia, combinando la experiencia artesanal con la tecnolog&iacute;a de punta. Lo que comenz&oacute; como un peque&ntilde;o taller familiar se ha convertido en un referente del mantenimiento automotriz en la regi&oacute;n.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Nuestra <strong class="text-slate-800">misi&oacute;n</strong> es brindar a cada cliente un servicio confiable, transparente y de alta calidad, asegurando que su veh&iacute;culo est&eacute; en &oacute;ptimas condiciones para cada viaje.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Nuestra <strong class="text-slate-800">visi&oacute;n</strong> es ser el taller automotriz l&iacute;der del sur del Per&uacute;, reconocido por la innovaci&oacute;n, la calidad del servicio y el compromiso con la satisfacci&oacute;n total de nuestros clientes.
+                    </p>
+                    <div class="flex items-center space-x-4 mt-6">
+                        <div class="bg-red-100 text-red-600 px-4 py-2 rounded-lg font-semibold">
+                            <i class="fas fa-calendar-alt mr-2"></i>Desde 2014
+                        </div>
+                        <div class="bg-blue-100 text-blue-600 px-4 py-2 rounded-lg font-semibold">
+                            <i class="fas fa-map-pin mr-2"></i>Arequipa, Per&uacute;
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&h=400&fit=crop" alt="Taller AutoElite" class="rounded-2xl shadow-xl w-full h-auto object-cover">
+                    <div class="absolute -bottom-6 -left-6 bg-red-600 text-white p-6 rounded-2xl shadow-lg hidden md:block">
+                        <div class="text-3xl font-bold">10+</div>
+                        <div class="text-sm">A&ntilde;os de<br>Experiencia</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Interactivo -->
+    <section class="py-16 px-4 bg-slate-50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-slate-800">Nuestro <span class="text-red-600">Camino</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Cada a&ntilde;o ha sido un paso adelante en nuestro compromiso con la excelencia automotriz.</p>
+            </div>
+            <div class="timeline relative">
+                <!-- Timeline line -->
+                <div class="timeline-line absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-red-300"></div>
+
+                <!-- 2014 -->
+                <div class="timeline-item reveal relative flex flex-col md:flex-row items-start mb-12 md:mb-16">
+                    <div class="timeline-dot absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-red-600 rounded-full border-4 border-white shadow-md z-10 mt-1"></div>
+                    <div class="timeline-content ml-12 md:ml-0 md:w-1/2 md:pr-12 md:text-right">
+                        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <span class="inline-block bg-red-100 text-red-600 text-sm font-bold px-3 py-1 rounded-full mb-3">2014</span>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">Fundaci&oacute;n de AutoElite</h3>
+                            <p class="text-gray-600 text-sm">Iniciamos operaciones como un taller familiar con la visi&oacute;n de transformar la experiencia automotriz en Arequipa.</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2"></div>
+                </div>
+
+                <!-- 2016 -->
+                <div class="timeline-item reveal relative flex flex-col md:flex-row items-start mb-12 md:mb-16">
+                    <div class="timeline-dot absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-red-600 rounded-full border-4 border-white shadow-md z-10 mt-1"></div>
+                    <div class="md:w-1/2"></div>
+                    <div class="timeline-content ml-12 md:ml-0 md:w-1/2 md:pl-12">
+                        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <span class="inline-block bg-red-100 text-red-600 text-sm font-bold px-3 py-1 rounded-full mb-3">2016</span>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">Primer Taller Certificado</h3>
+                            <p class="text-gray-600 text-sm">Obtuvimos nuestra primera certificaci&oacute;n oficial, reconociendo la calidad y est&aacute;ndares de nuestro trabajo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2018 -->
+                <div class="timeline-item reveal relative flex flex-col md:flex-row items-start mb-12 md:mb-16">
+                    <div class="timeline-dot absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-red-600 rounded-full border-4 border-white shadow-md z-10 mt-1"></div>
+                    <div class="timeline-content ml-12 md:ml-0 md:w-1/2 md:pr-12 md:text-right">
+                        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <span class="inline-block bg-red-100 text-red-600 text-sm font-bold px-3 py-1 rounded-full mb-3">2018</span>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">Diagn&oacute;stico Computarizado</h3>
+                            <p class="text-gray-600 text-sm">Incorporamos equipos de diagn&oacute;stico computarizado de &uacute;ltima generaci&oacute;n para ofrecer un servicio m&aacute;s preciso.</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2"></div>
+                </div>
+
+                <!-- 2020 -->
+                <div class="timeline-item reveal relative flex flex-col md:flex-row items-start mb-12 md:mb-16">
+                    <div class="timeline-dot absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-red-600 rounded-full border-4 border-white shadow-md z-10 mt-1"></div>
+                    <div class="md:w-1/2"></div>
+                    <div class="timeline-content ml-12 md:ml-0 md:w-1/2 md:pl-12">
+                        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <span class="inline-block bg-red-100 text-red-600 text-sm font-bold px-3 py-1 rounded-full mb-3">2020</span>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">Sistema de Gesti&oacute;n Digital</h3>
+                            <p class="text-gray-600 text-sm">Implementamos un sistema digital integral para gesti&oacute;n de citas, inventario y seguimiento de veh&iacute;culos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2022 -->
+                <div class="timeline-item reveal relative flex flex-col md:flex-row items-start mb-12 md:mb-16">
+                    <div class="timeline-dot absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-red-600 rounded-full border-4 border-white shadow-md z-10 mt-1"></div>
+                    <div class="timeline-content ml-12 md:ml-0 md:w-1/2 md:pr-12 md:text-right">
+                        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <span class="inline-block bg-red-100 text-red-600 text-sm font-bold px-3 py-1 rounded-full mb-3">2022</span>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">Mejor Taller de Arequipa</h3>
+                            <p class="text-gray-600 text-sm">Fuimos reconocidos como el mejor taller automotriz de Arequipa por la C&aacute;mara de Comercio local.</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2"></div>
+                </div>
+
+                <!-- 2024 -->
+                <div class="timeline-item reveal relative flex flex-col md:flex-row items-start mb-12 md:mb-16">
+                    <div class="timeline-dot absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-red-600 rounded-full border-4 border-white shadow-md z-10 mt-1"></div>
+                    <div class="md:w-1/2"></div>
+                    <div class="timeline-content ml-12 md:ml-0 md:w-1/2 md:pl-12">
+                        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <span class="inline-block bg-red-100 text-red-600 text-sm font-bold px-3 py-1 rounded-full mb-3">2024</span>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">Inauguraci&oacute;n de Nueva Sede</h3>
+                            <p class="text-gray-600 text-sm">Abrimos nuestras nuevas instalaciones modernas con mayor capacidad y equipamiento de &uacute;ltima generaci&oacute;n.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2026 -->
+                <div class="timeline-item reveal relative flex flex-col md:flex-row items-start">
+                    <div class="timeline-dot absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-red-600 rounded-full border-4 border-white shadow-md z-10 mt-1"></div>
+                    <div class="timeline-content ml-12 md:ml-0 md:w-1/2 md:pr-12 md:text-right">
+                        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <span class="inline-block bg-red-100 text-red-600 text-sm font-bold px-3 py-1 rounded-full mb-3">2026</span>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">500+ Clientes Satisfechos</h3>
+                            <p class="text-gray-600 text-sm">Alcanzamos la meta de m&aacute;s de 500 clientes satisfechos, consolidando nuestra posici&oacute;n como referente automotriz.</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores -->
+    <section class="py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-slate-800">Nuestros <span class="text-red-600">Valores</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Los pilares que gu&iacute;an cada acci&oacute;n y servicio que ofrecemos a nuestros clientes.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Calidad -->
+                <div class="reveal value-card bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-red-600 group-hover:text-white transition-all duration-300">
+                        <i class="fas fa-award text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Calidad</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Utilizamos repuestos de primera y seguimos est&aacute;ndares internacionales en cada reparaci&oacute;n.</p>
+                </div>
+                <!-- Confianza -->
+                <div class="reveal value-card bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                        <i class="fas fa-handshake text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Confianza</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Transparencia total en nuestros procesos, presupuestos y tiempos de entrega.</p>
+                </div>
+                <!-- Innovaci&oacute;n -->
+                <div class="reveal value-card bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-600 group-hover:text-white transition-all duration-300">
+                        <i class="fas fa-lightbulb text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Innovaci&oacute;n</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Constante actualizaci&oacute;n tecnol&oacute;gica para ofrecer diagn&oacute;sticos y reparaciones de vanguardia.</p>
+                </div>
+                <!-- Compromiso -->
+                <div class="reveal value-card bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-2">
+                    <div class="w-20 h-20 bg-yellow-100 text-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-500 group-hover:text-white transition-all duration-300">
+                        <i class="fas fa-heart text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Compromiso</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Nos dedicamos al 100% a la satisfacci&oacute;n de cada cliente y el cuidado de su veh&iacute;culo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section class="py-16 px-4 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-slate-800">Nuestro <span class="text-red-600">Equipo</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Profesionales apasionados por el mundo automotriz, comprometidos con tu satisfacci&oacute;n.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Carlos Mendoza -->
+                <div class="reveal team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-slate-700 to-slate-900 p-8 text-center">
+                        <div class="w-24 h-24 bg-slate-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-user-tie text-white text-4xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">Carlos Mendoza</h3>
+                        <p class="text-red-600 text-sm font-medium mb-3">Director General</p>
+                        <p class="text-gray-500 text-sm leading-relaxed">M&aacute;s de 20 a&ntilde;os de experiencia en el sector automotriz. L&iacute;der visionario comprometido con la excelencia.</p>
+                        <div class="flex justify-center space-x-3 mt-4">
+                            <a href="#" class="text-gray-400 hover:text-red-600 transition"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-red-600 transition"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Ana Garc&iacute;a -->
+                <div class="reveal team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-slate-700 to-slate-900 p-8 text-center">
+                        <div class="w-24 h-24 bg-slate-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-user text-white text-4xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">Ana Garc&iacute;a</h3>
+                        <p class="text-red-600 text-sm font-medium mb-3">Jefa de Operaciones</p>
+                        <p class="text-gray-500 text-sm leading-relaxed">Especialista en gesti&oacute;n de procesos y optimizaci&oacute;n operativa. Garantiza eficiencia en cada servicio.</p>
+                        <div class="flex justify-center space-x-3 mt-4">
+                            <a href="#" class="text-gray-400 hover:text-red-600 transition"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-red-600 transition"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Roberto L&oacute;pez -->
+                <div class="reveal team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-slate-700 to-slate-900 p-8 text-center">
+                        <div class="w-24 h-24 bg-slate-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-wrench text-white text-4xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">Roberto L&oacute;pez</h3>
+                        <p class="text-red-600 text-sm font-medium mb-3">T&eacute;cnico Especialista</p>
+                        <p class="text-gray-500 text-sm leading-relaxed">Experto en mec&aacute;nica avanzada y diagn&oacute;stico computarizado. Certificado por marcas internacionales.</p>
+                        <div class="flex justify-center space-x-3 mt-4">
+                            <a href="#" class="text-gray-400 hover:text-red-600 transition"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-red-600 transition"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mar&iacute;a Torres -->
+                <div class="reveal team-card bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-slate-700 to-slate-900 p-8 text-center">
+                        <div class="w-24 h-24 bg-slate-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-headset text-white text-4xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">Mar&iacute;a Torres</h3>
+                        <p class="text-red-600 text-sm font-medium mb-3">Atenci&oacute;n al Cliente</p>
+                        <p class="text-gray-500 text-sm leading-relaxed">Apasionada por brindar la mejor experiencia al cliente. Resoluci&oacute;n proactiva y trato c&aacute;lido.</p>
+                        <div class="flex justify-center space-x-3 mt-4">
+                            <a href="#" class="text-gray-400 hover:text-red-600 transition"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-red-600 transition"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contadores -->
+    <section class="py-16 px-4 bg-gradient-to-r from-slate-800 to-slate-900 text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="reveal">
+                    <div class="text-4xl md:text-5xl font-bold mb-2">
+                        <span class="counter" data-target="500">0</span>+
+                    </div>
+                    <p class="text-gray-400 text-sm md:text-base">Clientes Satisfechos</p>
+                </div>
+                <div class="reveal">
+                    <div class="text-4xl md:text-5xl font-bold mb-2">
+                        <span class="counter" data-target="10">0</span>+
+                    </div>
+                    <p class="text-gray-400 text-sm md:text-base">A&ntilde;os de Experiencia</p>
+                </div>
+                <div class="reveal">
+                    <div class="text-4xl md:text-5xl font-bold mb-2">
+                        <span class="counter" data-target="1500">0</span>+
+                    </div>
+                    <p class="text-gray-400 text-sm md:text-base">Servicios Realizados</p>
+                </div>
+                <div class="reveal">
+                    <div class="text-4xl md:text-5xl font-bold mb-2">
+                        <span class="counter" data-target="15">0</span>+
+                    </div>
+                    <p class="text-gray-400 text-sm md:text-base">Profesionales</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-gray-400 py-12 px-4 text-sm">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h4 class="text-white font-bold mb-4">AutoElite</h4>
+                <p>Tu centro integral de cuidado automotriz en Arequipa.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Horarios</h4>
+                <p>Lun - Vie: 8:00 AM - 6:00 PM</p>
+                <p>S&aacute;b: 9:00 AM - 2:00 PM</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Enlaces</h4>
+                <ul class="space-y-2">
+                    <li><a href="servicios.html" class="hover:text-white transition">Servicios</a></li>
+                    <li><a href="galeria.html" class="hover:text-white transition">Galer&iacute;a</a></li>
+                    <li><a href="nosotros.html" class="hover:text-white transition">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="hover:text-white transition">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">S&iacute;guenos</h4>
+                <div class="flex space-x-4 text-xl">
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-10 pt-6 text-center">
+            &copy; <span id="current-year"></span> AutoElite. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+    <script src="nosotros.js"></script>
+</body>
+</html>

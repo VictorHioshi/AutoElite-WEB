@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cont&aacute;ctanos - AutoElite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-sans bg-gray-50 text-gray-800 transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container max-w-7xl mx-auto px-4 flex items-center justify-between py-4">
+            <a href="index.html" class="logo flex items-center">
+                <div class="bg-slate-800 p-2 rounded">
+                    <span class="text-white font-bold text-xl">AUTO</span>
+                    <span class="text-blue-400 font-light text-xl">ELITE</span>
+                </div>
+            </a>
+            <ul class="nav-links hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="index.html" class="hover:text-red-600">Inicio</a></li>
+                <li><a href="servicios.html" class="hover:text-red-600">Servicios</a></li>
+                <li><a href="galeria.html" class="hover:text-red-600">Galer&iacute;a</a></li>
+                <li><a href="nosotros.html" class="hover:text-red-600">Sobre Nosotros</a></li>
+                <li><a href="contacto.html" class="text-red-600 font-bold">Contacto</a></li>
+            </ul>
+            <div class="flex items-center space-x-3">
+                <button id="dark-mode-btn" class="p-2 rounded-full hover:bg-gray-200" title="Modo oscuro">
+                    <i class="fas fa-moon text-lg"></i>
+                </button>
+                <a href="contacto.html" class="btn btn-primary hidden sm:inline-block text-sm">Pedir Cita</a>
+                <button id="menu-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden fixed inset-0 z-50">
+            <div class="absolute inset-0 bg-black/50" id="menu-overlay"></div>
+            <div class="mobile-menu-panel absolute right-0 top-0 h-full w-72 bg-white shadow-xl p-6 transform translate-x-full transition-transform duration-300">
+                <button id="menu-close" class="text-2xl mb-8 float-right"><i class="fas fa-times"></i></button>
+                <div class="clear-both"></div>
+                <ul class="space-y-4 text-lg mt-4">
+                    <li><a href="index.html" class="block py-2 hover:text-red-600 transition">Inicio</a></li>
+                    <li><a href="servicios.html" class="block py-2 hover:text-red-600 transition">Servicios</a></li>
+                    <li><a href="galeria.html" class="block py-2 hover:text-red-600 transition">Galer&iacute;a</a></li>
+                    <li><a href="nosotros.html" class="block py-2 hover:text-red-600 transition">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="block py-2 hover:text-red-600 transition">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-[300px] bg-cover bg-center flex items-center justify-center" style="background-image: url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3');">
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="relative z-10 text-center text-white px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-3">Cont&aacute;ctanos</h1>
+            <p class="text-lg md:text-xl text-gray-300">Estamos listos para ayudarte con tu veh&iacute;culo</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+            <!-- LEFT COLUMN -->
+            <div class="space-y-10">
+
+                <!-- Info de Contacto -->
+                <div class="reveal">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-slate-800">Informaci&oacute;n de <span class="text-red-600">Contacto</span></h2>
+                    <div class="space-y-4">
+                        <!-- Direcci&oacute;n -->
+                        <div class="flex items-start space-x-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 mb-1">Direcci&oacute;n</h4>
+                                <p class="text-gray-600 text-sm">Av. Principal #123, Zona Industrial, Arequipa</p>
+                            </div>
+                        </div>
+                        <!-- Tel&eacute;fono -->
+                        <div class="flex items-start space-x-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 mb-1">Tel&eacute;fono</h4>
+                                <p class="text-gray-600 text-sm">(054) 0011223344</p>
+                            </div>
+                        </div>
+                        <!-- Email -->
+                        <div class="flex items-start space-x-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 mb-1">Email</h4>
+                                <p class="text-gray-600 text-sm">contacto@autoelite.com</p>
+                            </div>
+                        </div>
+                        <!-- WhatsApp -->
+                        <div class="flex items-start space-x-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-whatsapp text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 mb-1">WhatsApp</h4>
+                                <p class="text-gray-600 text-sm">+51 944 123 456</p>
+                            </div>
+                        </div>
+                        <!-- Horarios -->
+                        <div class="flex items-start space-x-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 mb-1">Horarios</h4>
+                                <p class="text-gray-600 text-sm">Lun - Vie: 8:00 AM - 6:00 PM</p>
+                                <p class="text-gray-600 text-sm">S&aacute;b: 9:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mapa -->
+                <div class="reveal">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-slate-800">Nuestra <span class="text-red-600">Ubicaci&oacute;n</span></h2>
+                    <div class="rounded-xl overflow-hidden shadow-md h-64 md:h-80">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193387.02438912617!2d-71.58159755!3d-16.40904735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424b59a5e8bbab%3A0x3b62e7d48899e3b4!2sArequipa%2C%20Peru!5e0!3m2!1ses!2spe!4v1700000000000!5m2!1ses!2spe"
+                            width="100%"
+                            height="100%"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Ubicaci&oacute;n de AutoElite en Arequipa">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="space-y-10">
+
+                <!-- Contact Form -->
+                <div class="reveal">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-slate-800">Env&iacute;anos un <span class="text-red-600">Mensaje</span></h2>
+                    <form id="contact-form" class="bg-white p-6 md:p-8 rounded-2xl shadow-lg space-y-5" novalidate>
+
+                        <!-- Nombre completo -->
+                        <div class="form-group">
+                            <label for="contact-name" class="block text-sm font-semibold text-slate-700 mb-1">
+                                Nombre completo <span class="text-red-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <input
+                                    type="text"
+                                    id="contact-name"
+                                    name="nombre"
+                                    class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors text-sm"
+                                    placeholder="Ej: Juan P&eacute;rez"
+                                    required
+                                    minlength="3"
+                                >
+                                <span class="validation-icon absolute right-3 top-1/2 -translate-y-1/2 text-lg hidden"></span>
+                            </div>
+                            <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="contact-email" class="block text-sm font-semibold text-slate-700 mb-1">
+                                Email <span class="text-red-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <input
+                                    type="email"
+                                    id="contact-email"
+                                    name="email"
+                                    class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors text-sm"
+                                    placeholder="Ej: juan@email.com"
+                                    required
+                                >
+                                <span class="validation-icon absolute right-3 top-1/2 -translate-y-1/2 text-lg hidden"></span>
+                            </div>
+                            <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                        </div>
+
+                        <!-- Tel&eacute;fono -->
+                        <div class="form-group">
+                            <label for="contact-phone" class="block text-sm font-semibold text-slate-700 mb-1">
+                                Tel&eacute;fono <span class="text-red-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <input
+                                    type="tel"
+                                    id="contact-phone"
+                                    name="telefono"
+                                    class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors text-sm"
+                                    placeholder="Ej: 944123456"
+                                    required
+                                    maxlength="9"
+                                >
+                                <span class="validation-icon absolute right-3 top-1/2 -translate-y-1/2 text-lg hidden"></span>
+                            </div>
+                            <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                        </div>
+
+                        <!-- Tipo de veh&iacute;culo -->
+                        <div class="form-group">
+                            <label for="contact-vehicle" class="block text-sm font-semibold text-slate-700 mb-1">
+                                Tipo de veh&iacute;culo <span class="text-red-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <select
+                                    id="contact-vehicle"
+                                    name="tipo_vehiculo"
+                                    class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors text-sm bg-white"
+                                    required
+                                >
+                                    <option value="">-- Selecciona --</option>
+                                    <option value="auto">Auto</option>
+                                    <option value="camioneta">Camioneta</option>
+                                    <option value="moto">Moto</option>
+                                    <option value="camion">Cam&oacute;n</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                                <span class="validation-icon absolute right-3 top-1/2 -translate-y-1/2 text-lg hidden"></span>
+                            </div>
+                            <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                        </div>
+
+                        <!-- Servicio requerido -->
+                        <div class="form-group">
+                            <label for="contact-service" class="block text-sm font-semibold text-slate-700 mb-1">
+                                Servicio requerido <span class="text-red-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <select
+                                    id="contact-service"
+                                    name="servicio"
+                                    class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors text-sm bg-white"
+                                    required
+                                >
+                                    <option value="">-- Selecciona un servicio --</option>
+                                    <option value="mantenimiento">Mantenimiento Preventivo</option>
+                                    <option value="diagnostico">Diagn&oacute;stico Computarizado</option>
+                                    <option value="cambio-aceite">Cambio de Aceite</option>
+                                    <option value="frenos">Sistema de Frenos</option>
+                                    <option value="suspension">Suspensi&oacute;n y Direcci&oacute;n</option>
+                                    <option value="electrico">Sistema El&eacute;ctrico</option>
+                                    <option value="pintura">Pintura y Carrocer&iacute;a</option>
+                                    <option value="aire">Aire Acondicionado</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                                <span class="validation-icon absolute right-3 top-1/2 -translate-y-1/2 text-lg hidden"></span>
+                            </div>
+                            <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                        </div>
+
+                        <!-- Fecha preferida -->
+                        <div class="form-group">
+                            <label for="contact-date" class="block text-sm font-semibold text-slate-700 mb-1">
+                                Fecha preferida <span class="text-red-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <input
+                                    type="date"
+                                    id="contact-date"
+                                    name="fecha"
+                                    class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors text-sm"
+                                    required
+                                >
+                                <span class="validation-icon absolute right-3 top-1/2 -translate-y-1/2 text-lg hidden"></span>
+                            </div>
+                            <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                        </div>
+
+                        <!-- Mensaje -->
+                        <div class="form-group">
+                            <label for="contact-message" class="block text-sm font-semibold text-slate-700 mb-1">
+                                Mensaje <span class="text-red-500">*</span>
+                            </label>
+                            <div class="relative">
+                                <textarea
+                                    id="contact-message"
+                                    name="mensaje"
+                                    class="form-input w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors text-sm resize-none"
+                                    rows="4"
+                                    placeholder="Describe brevemente tu necesidad..."
+                                    required
+                                    minlength="10"
+                                    maxlength="500"
+                                ></textarea>
+                                <span class="validation-icon absolute right-3 top-3 text-lg hidden"></span>
+                            </div>
+                            <div class="flex justify-between mt-1">
+                                <p class="error-message text-red-500 text-xs hidden"></p>
+                                <p class="char-count text-gray-400 text-xs ml-auto"><span id="char-count">0</span>/500</p>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button
+                            type="submit"
+                            id="contact-submit"
+                            class="w-full bg-red-600 hover:bg-red-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-3 px-6 rounded-xl transition-colors duration-300 text-sm flex items-center justify-center space-x-2"
+                            disabled
+                        >
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Enviar Mensaje</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- FAQ Accordion -->
+                <div class="reveal">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-slate-800">Preguntas <span class="text-red-600">Frecuentes</span></h2>
+                    <div class="space-y-3" id="faq-container">
+
+                        <!-- FAQ 1 -->
+                        <div class="faq-item bg-white rounded-xl shadow-sm overflow-hidden">
+                            <button class="faq-toggle w-full flex items-center justify-between p-5 text-left font-semibold text-slate-800 hover:text-red-600 transition-colors" aria-expanded="false">
+                                <span>&iquest;Cu&aacute;nto dura un mantenimiento preventivo?</span>
+                                <i class="fas fa-chevron-down transition-transform duration-300 text-sm"></i>
+                            </button>
+                            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                                <p class="px-5 pb-5 text-gray-600 text-sm leading-relaxed">
+                                    Un mantenimiento preventivo completo suele tomar entre 1.5 y 3 horas, dependiendo del tipo de veh&iacute;culo y los servicios incluidos. Para veh&iacute;culos con mantenimiento m&aacute;s extenso, puede requerir medio d&iacute;a. Te recomendamos solicitar una cita previa para optimizar tu tiempo.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 2 -->
+                        <div class="faq-item bg-white rounded-xl shadow-sm overflow-hidden">
+                            <button class="faq-toggle w-full flex items-center justify-between p-5 text-left font-semibold text-slate-800 hover:text-red-600 transition-colors" aria-expanded="false">
+                                <span>&iquest;Trabajan con todas las marcas de veh&iacute;culos?</span>
+                                <i class="fas fa-chevron-down transition-transform duration-300 text-sm"></i>
+                            </button>
+                            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                                <p class="px-5 pb-5 text-gray-600 text-sm leading-relaxed">
+                                    S&iacute;, nuestro equipo est&aacute; capacitado para trabajar con todas las marcas nacionales e internacionales: Toyota, Nissan, Hyundai, Kia, Chevrolet, Ford, BMW, Mercedes-Benz, entre otras. Contamos con herramientas y diagn&oacute;sticos especializados para cada marca.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 3 -->
+                        <div class="faq-item bg-white rounded-xl shadow-sm overflow-hidden">
+                            <button class="faq-toggle w-full flex items-center justify-between p-5 text-left font-semibold text-slate-800 hover:text-red-600 transition-colors" aria-expanded="false">
+                                <span>&iquest;Ofrecen garant&iacute;a en sus servicios?</span>
+                                <i class="fas fa-chevron-down transition-transform duration-300 text-sm"></i>
+                            </button>
+                            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                                <p class="px-5 pb-5 text-gray-600 text-sm leading-relaxed">
+                                    Por supuesto. Todos nuestros servicios cuentan con garant&iacute;a que var&iacute;a seg&uacute;n el tipo de trabajo realizado. En general, ofrecemos garant&iacute;a de 3 a 6 meses en reparaciones y 1 mes en servicios de mantenimiento. Los repuestos originales cuentan con la garant&iacute;a del fabricante.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 4 -->
+                        <div class="faq-item bg-white rounded-xl shadow-sm overflow-hidden">
+                            <button class="faq-toggle w-full flex items-center justify-between p-5 text-left font-semibold text-slate-800 hover:text-red-600 transition-colors" aria-expanded="false">
+                                <span>&iquest;Aceptan tarjeta de cr&eacute;dito?</span>
+                                <i class="fas fa-chevron-down transition-transform duration-300 text-sm"></i>
+                            </button>
+                            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                                <p class="px-5 pb-5 text-gray-600 text-sm leading-relaxed">
+                                    S&iacute;, aceptamos pagos en efectivo, tarjeta de d&eacute;bito, tarjeta de cr&eacute;dito (Visa, Mastercard), y transferencia bancaria. Tambi&eacute;n ofrecemos la opci&oacute;n de pago contra entrega para servicios mayores con facilidades de financiamiento.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 5 -->
+                        <div class="faq-item bg-white rounded-xl shadow-sm overflow-hidden">
+                            <button class="faq-toggle w-full flex items-center justify-between p-5 text-left font-semibold text-slate-800 hover:text-red-600 transition-colors" aria-expanded="false">
+                                <span>&iquest;Puedo llevar mi propio repuesto?</span>
+                                <i class="fas fa-chevron-down transition-transform duration-300 text-sm"></i>
+                            </button>
+                            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                                <p class="px-5 pb-5 text-gray-600 text-sm leading-relaxed">
+                                    S&iacute;, puedes traer tus propios repuestos. Sin embargo, es importante notar que la garant&iacute;a del servicio se aplicar&aacute; &uacute;nicamente sobre la mano de obra. Para repuestos adquiridos a trav&eacute;s de AutoElite, ofrecemos garant&iacute;a integral sobre el repuesto y la instalaci&oacute;n.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-gray-400 py-12 px-4 text-sm">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h4 class="text-white font-bold mb-4">AutoElite</h4>
+                <p>Tu centro integral de cuidado automotriz en Arequipa.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Horarios</h4>
+                <p>Lun - Vie: 8:00 AM - 6:00 PM</p>
+                <p>S&aacute;b: 9:00 AM - 2:00 PM</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Enlaces</h4>
+                <ul class="space-y-2">
+                    <li><a href="servicios.html" class="hover:text-white transition">Servicios</a></li>
+                    <li><a href="galeria.html" class="hover:text-white transition">Galer&iacute;a</a></li>
+                    <li><a href="nosotros.html" class="hover:text-white transition">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="hover:text-white transition">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">S&iacute;guenos</h4>
+                <div class="flex space-x-4 text-xl">
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-10 pt-6 text-center">
+            &copy; <span id="current-year"></span> AutoElite. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-6 right-6 z-[9999] space-y-3"></div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+    <script src="contacto.js"></script>
+</body>
+</html>

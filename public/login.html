@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesi&oacute;n - AutoElite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-btn.active {
+            color: #dc2626;
+            border-bottom: 3px solid #dc2626;
+        }
+        .password-toggle {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #9ca3af;
+            transition: color 0.2s;
+        }
+        .password-toggle:hover { color: #dc2626; }
+        .strength-bar {
+            height: 4px;
+            border-radius: 2px;
+            transition: width 0.3s, background-color 0.3s;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800 transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container max-w-7xl mx-auto px-4 flex items-center justify-between py-4">
+            <a href="index.html" class="logo flex items-center">
+                <div class="bg-slate-800 p-2 rounded">
+                    <span class="text-white font-bold text-xl">AUTO</span>
+                    <span class="text-blue-400 font-light text-xl">ELITE</span>
+                </div>
+            </a>
+            <ul class="nav-links hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="index.html" class="hover:text-red-600">Inicio</a></li>
+                <li><a href="servicios.html" class="hover:text-red-600">Servicios</a></li>
+                <li><a href="galeria.html" class="hover:text-red-600">Galer&iacute;a</a></li>
+                <li><a href="nosotros.html" class="hover:text-red-600">Sobre Nosotros</a></li>
+                <li><a href="contacto.html" class="hover:text-red-600">Contacto</a></li>
+            </ul>
+            <div class="flex items-center space-x-3">
+                <button id="dark-mode-btn" class="p-2 rounded-full hover:bg-gray-200" title="Modo oscuro">
+                    <i class="fas fa-moon text-lg"></i>
+                </button>
+                <a href="contacto.html" class="btn btn-primary hidden sm:inline-block text-sm">Pedir Cita</a>
+                <button id="menu-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden fixed inset-0 z-50">
+            <div class="absolute inset-0 bg-black/50" id="menu-overlay"></div>
+            <div class="mobile-menu-panel absolute right-0 top-0 h-full w-72 bg-white shadow-xl p-6 transform translate-x-full transition-transform duration-300">
+                <button id="menu-close" class="text-2xl mb-8 float-right"><i class="fas fa-times"></i></button>
+                <div class="clear-both"></div>
+                <ul class="space-y-4 text-lg mt-4">
+                    <li><a href="index.html" class="block py-2 hover:text-red-600 transition">Inicio</a></li>
+                    <li><a href="servicios.html" class="block py-2 hover:text-red-600 transition">Servicios</a></li>
+                    <li><a href="galeria.html" class="block py-2 hover:text-red-600 transition">Galer&iacute;a</a></li>
+                    <li><a href="nosotros.html" class="block py-2 hover:text-red-600 transition">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="block py-2 hover:text-red-600 transition">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login/Register Section -->
+    <section class="min-h-screen flex items-center justify-center px-4 py-12" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);">
+        <div class="w-full max-w-md">
+
+            <!-- Card -->
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+
+                <!-- Car Icon Header -->
+                <div class="bg-gradient-to-r from-red-600 to-red-700 px-8 py-8 text-center">
+                    <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-car text-white text-3xl"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold text-white">Bienvenido a AutoElite</h1>
+                    <p class="text-red-100 text-sm mt-1">Gestiona tus citas y veh&iacute;culos</p>
+                </div>
+
+                <!-- Tab Buttons -->
+                <div class="flex border-b border-gray-200">
+                    <button class="tab-btn active flex-1 py-4 text-sm font-semibold transition-colors border-b-3 border-transparent" data-tab="login" aria-selected="true">
+                        Iniciar Sesi&oacute;n
+                    </button>
+                    <button class="tab-btn flex-1 py-4 text-sm font-semibold text-gray-500 hover:text-red-600 transition-colors border-b-3 border-transparent" data-tab="register" aria-selected="false">
+                        Registrarse
+                    </button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="p-8">
+
+                    <!-- LOGIN TAB -->
+                    <div class="tab-content active" id="tab-login">
+                        <form id="login-form" novalidate>
+                            <!-- Email -->
+                            <div class="form-group mb-5">
+                                <label for="login-email" class="block text-sm font-semibold text-slate-700 mb-1">
+                                    Email
+                                </label>
+                                <div class="relative">
+                                    <input
+                                        type="email"
+                                        id="login-email"
+                                        class="form-input w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors text-sm"
+                                        placeholder="tu@email.com"
+                                        required
+                                    >
+                                    <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                </div>
+                                <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="form-group mb-4">
+                                <label for="login-password" class="block text-sm font-semibold text-slate-700 mb-1">
+                                    Contrase&ntilde;a
+                                </label>
+                                <div class="relative">
+                                    <input
+                                        type="password"
+                                        id="login-password"
+                                        class="form-input w-full pl-11 pr-11 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors text-sm"
+                                        placeholder="********"
+                                        required
+                                    >
+                                    <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                    <span class="password-toggle" id="toggle-login-password">
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                </div>
+                                <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                            </div>
+
+                            <!-- Remember Me -->
+                            <div class="flex items-center justify-between mb-6">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" id="login-remember" class="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500">
+                                    <span class="text-sm text-gray-600">Recordarme</span>
+                                </label>
+                                <a href="#" id="forgot-password-link" class="text-sm text-red-600 hover:text-red-700 font-medium transition-colors">
+                                    &iquest;Olvidaste tu contrase&ntilde;a?
+                                </a>
+                            </div>
+
+                            <!-- Submit -->
+                            <button
+                                type="submit"
+                                id="login-submit"
+                                class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-xl transition-colors duration-300 text-sm flex items-center justify-center space-x-2"
+                            >
+                                <i class="fas fa-sign-in-alt"></i>
+                                <span>Iniciar Sesi&oacute;n</span>
+                            </button>
+                        </form>
+
+                        <!-- Switch to Register -->
+                        <p class="text-center text-sm text-gray-500 mt-6">
+                            &iquest;No tienes cuenta?
+                            <a href="#" class="text-red-600 font-semibold hover:text-red-700 transition-colors" id="switch-to-register">Reg&iacute;strate</a>
+                        </p>
+                    </div>
+
+                    <!-- REGISTER TAB -->
+                    <div class="tab-content" id="tab-register">
+                        <form id="register-form" novalidate>
+                            <!-- Nombre completo -->
+                            <div class="form-group mb-5">
+                                <label for="register-name" class="block text-sm font-semibold text-slate-700 mb-1">
+                                    Nombre completo
+                                </label>
+                                <div class="relative">
+                                    <input
+                                        type="text"
+                                        id="register-name"
+                                        class="form-input w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors text-sm"
+                                        placeholder="Tu nombre completo"
+                                        required
+                                        minlength="3"
+                                    >
+                                    <i class="fas fa-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                </div>
+                                <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-group mb-5">
+                                <label for="register-email" class="block text-sm font-semibold text-slate-700 mb-1">
+                                    Email
+                                </label>
+                                <div class="relative">
+                                    <input
+                                        type="email"
+                                        id="register-email"
+                                        class="form-input w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors text-sm"
+                                        placeholder="tu@email.com"
+                                        required
+                                    >
+                                    <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                </div>
+                                <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                            </div>
+
+                            <!-- Tel&eacute;fono -->
+                            <div class="form-group mb-5">
+                                <label for="register-phone" class="block text-sm font-semibold text-slate-700 mb-1">
+                                    Tel&eacute;fono
+                                </label>
+                                <div class="relative">
+                                    <input
+                                        type="tel"
+                                        id="register-phone"
+                                        class="form-input w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors text-sm"
+                                        placeholder="944123456"
+                                        required
+                                        maxlength="9"
+                                    >
+                                    <i class="fas fa-phone absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                </div>
+                                <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="form-group mb-2">
+                                <label for="register-password" class="block text-sm font-semibold text-slate-700 mb-1">
+                                    Contrase&ntilde;a
+                                </label>
+                                <div class="relative">
+                                    <input
+                                        type="password"
+                                        id="register-password"
+                                        class="form-input w-full pl-11 pr-11 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors text-sm"
+                                        placeholder="M&iacute;nimo 6 caracteres"
+                                        required
+                                    >
+                                    <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                    <span class="password-toggle" id="toggle-register-password">
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                </div>
+                                <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                            </div>
+
+                            <!-- Password Strength Indicator -->
+                            <div class="mb-5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-xs text-gray-500">Fortaleza de contrase&ntilde;a</span>
+                                    <span id="strength-label" class="text-xs font-semibold text-gray-400"></span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-1 overflow-hidden">
+                                    <div class="strength-bar" id="strength-bar" style="width: 0%; background-color: #e5e7eb;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Confirmar Password -->
+                            <div class="form-group mb-5">
+                                <label for="register-confirm-password" class="block text-sm font-semibold text-slate-700 mb-1">
+                                    Confirmar Contrase&ntilde;a
+                                </label>
+                                <div class="relative">
+                                    <input
+                                        type="password"
+                                        id="register-confirm-password"
+                                        class="form-input w-full pl-11 pr-11 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-red-500 transition-colors text-sm"
+                                        placeholder="Repite tu contrase&ntilde;a"
+                                        required
+                                    >
+                                    <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                    <span class="password-toggle" id="toggle-register-confirm-password">
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                </div>
+                                <p class="error-message text-red-500 text-xs mt-1 hidden"></p>
+                            </div>
+
+                            <!-- Terms Checkbox -->
+                            <div class="form-group mb-6">
+                                <label class="flex items-start space-x-3 cursor-pointer">
+                                    <input type="checkbox" id="register-terms" class="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500 mt-0.5" required>
+                                    <span class="text-sm text-gray-600">
+                                        Acepto los
+                                        <a href="#" class="text-red-600 hover:text-red-700 font-medium">t&eacute;rminos y condiciones</a>
+                                        y la
+                                        <a href="#" class="text-red-600 hover:text-red-700 font-medium">pol&iacute;tica de privacidad</a>
+                                    </span>
+                                </label>
+                                <p class="error-message text-red-500 text-xs mt-1 hidden" id="terms-error"></p>
+                            </div>
+
+                            <!-- Submit -->
+                            <button
+                                type="submit"
+                                id="register-submit"
+                                class="w-full bg-red-600 hover:bg-red-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-3 px-6 rounded-xl transition-colors duration-300 text-sm flex items-center justify-center space-x-2"
+                                disabled
+                            >
+                                <i class="fas fa-user-plus"></i>
+                                <span>Registrarse</span>
+                            </button>
+                        </form>
+
+                        <!-- Switch to Login -->
+                        <p class="text-center text-sm text-gray-500 mt-6">
+                            &iquest;Ya tienes cuenta?
+                            <a href="#" class="text-red-600 font-semibold hover:text-red-700 transition-colors" id="switch-to-login">Inicia sesi&oacute;n</a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Back to home -->
+            <div class="text-center mt-6">
+                <a href="index.html" class="text-gray-400 hover:text-white transition-colors text-sm">
+                    <i class="fas fa-arrow-left mr-2"></i>Volver al inicio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-6 right-6 z-[9999] space-y-3"></div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

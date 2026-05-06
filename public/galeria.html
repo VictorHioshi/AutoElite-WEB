@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - AutoElite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Masonry-like gallery */
+        .masonry-grid {
+            columns: 1;
+            column-gap: 1.5rem;
+        }
+        @media (min-width: 640px) {
+            .masonry-grid { columns: 2; }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid { columns: 3; }
+        }
+        .masonry-grid .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        /* Lightbox */
+        .lightbox-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .lightbox-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        /* Fade-in for load more */
+        .gallery-item.fade-in {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container max-w-7xl mx-auto px-4">
+            <a href="index.html" class="logo flex items-center space-x-1">
+                <div class="bg-slate-800 p-2 rounded">
+                    <span class="text-white font-bold text-xl">AUTO</span>
+                    <span class="text-blue-400 font-light text-xl">ELITE</span>
+                </div>
+            </a>
+            <ul class="nav-links hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="index.html" class="hover:text-red-600">Inicio</a></li>
+                <li><a href="servicios.html" class="hover:text-red-600">Servicios</a></li>
+                <li><a href="galeria.html" class="text-red-600 font-bold">Galería</a></li>
+                <li><a href="nosotros.html" class="hover:text-red-600">Sobre Nosotros</a></li>
+                <li><a href="contacto.html" class="hover:text-red-600">Contacto</a></li>
+            </ul>
+            <div class="flex items-center space-x-3">
+                <button id="dark-mode-btn" class="p-2 rounded-full hover:bg-gray-200" title="Modo oscuro">
+                    <i class="fas fa-moon text-lg"></i>
+                </button>
+                <a href="contacto.html" class="btn btn-primary hidden sm:inline-block text-sm">Pedir Cita</a>
+                <button id="menu-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden fixed inset-0 z-50">
+            <div class="absolute inset-0 bg-black/50" id="menu-overlay"></div>
+            <div class="mobile-menu-panel absolute right-0 top-0 h-full w-72 bg-white shadow-xl p-6 transform translate-x-full transition-transform duration-300">
+                <button id="menu-close" class="text-2xl mb-8"><i class="fas fa-times"></i></button>
+                <ul class="space-y-4 text-lg">
+                    <li><a href="index.html" class="block py-2 hover:text-red-600">Inicio</a></li>
+                    <li><a href="servicios.html" class="block py-2 hover:text-red-600">Servicios</a></li>
+                    <li><a href="galeria.html" class="block py-2 hover:text-red-600">Galería</a></li>
+                    <li><a href="nosotros.html" class="block py-2 hover:text-red-600">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="block py-2 hover:text-red-600">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===================== PAGE HERO ===================== -->
+    <section class="relative h-[300px] flex items-center justify-center text-white text-center">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1503376780353-766e1452684a?auto=format&fit=crop&w=1350&q=80');"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
+        <div class="relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Nuestra <span class="text-red-500">Galería</span></h1>
+            <p class="text-lg text-gray-300">Trabajos que respaldan nuestra calidad</p>
+        </div>
+    </section>
+
+    <!-- ===================== GALLERY CONTENT ===================== -->
+    <section class="py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap gap-3 mb-10 justify-center">
+                <button class="galeria-filter-btn active bg-red-600 text-white px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300" data-filter="Todos">Todos</button>
+                <button class="galeria-filter-btn bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:bg-red-600 hover:text-white" data-filter="Mecánica">Mecánica</button>
+                <button class="galeria-filter-btn bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:bg-red-600 hover:text-white" data-filter="Eléctricos">Eléctricos</button>
+                <button class="galeria-filter-btn bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:bg-red-600 hover:text-white" data-filter="Pintura">Pintura</button>
+                <button class="galeria-filter-btn bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 hover:bg-red-600 hover:text-white" data-filter="Accesorios">Accesorios</button>
+            </div>
+
+            <!-- Gallery Masonry Grid -->
+            <div id="galeria-grid" class="masonry-grid">
+                <!-- Rendered by JavaScript -->
+            </div>
+
+            <!-- Load More Button -->
+            <div id="load-more-container" class="text-center mt-10">
+                <button id="load-more-btn" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-plus mr-2"></i>Cargar Más
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== LIGHTBOX ===================== -->
+    <div id="lightbox" class="lightbox-overlay fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4">
+        <!-- Close Button -->
+        <button id="lightbox-close" class="absolute top-4 right-4 text-white text-3xl hover:text-red-500 transition-colors z-10">
+            <i class="fas fa-times"></i>
+        </button>
+        <!-- Prev Button -->
+        <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-red-500 transition-colors z-10">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <!-- Next Button -->
+        <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-red-500 transition-colors z-10">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <!-- Lightbox Content -->
+        <div class="max-w-5xl w-full max-h-[90vh] flex flex-col items-center">
+            <!-- Image Counter -->
+            <div class="text-white text-sm mb-3">
+                <span id="lightbox-counter">1 / 12</span>
+            </div>
+            <!-- Image -->
+            <img id="lightbox-image" src="" alt="" class="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl">
+            <!-- Title & Description -->
+            <div class="text-center mt-4">
+                <h3 id="lightbox-title" class="text-white text-xl font-bold"></h3>
+                <p id="lightbox-desc" class="text-gray-400 text-sm mt-1"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="bg-slate-900 text-gray-400 py-12 px-4 text-sm">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h4 class="text-white font-bold mb-4">AutoElite</h4>
+                <p>Tu centro integral de cuidado automotriz en Arequipa.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Horarios</h4>
+                <p>Lun - Vie: 8:00 AM - 6:00 PM</p>
+                <p>Sáb: 9:00 AM - 2:00 PM</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Enlaces</h4>
+                <ul class="space-y-2">
+                    <li><a href="servicios.html" class="hover:text-white">Servicios</a></li>
+                    <li><a href="galeria.html" class="hover:text-white">Galería</a></li>
+                    <li><a href="nosotros.html" class="hover:text-white">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="hover:text-white">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Síguenos</h4>
+                <div class="flex space-x-4 text-xl">
+                    <a href="#" class="hover:text-white"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-10 pt-6 text-center">
+            &copy; <span id="current-year"></span> AutoElite. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="galeria.js"></script>
+</body>
+</html>

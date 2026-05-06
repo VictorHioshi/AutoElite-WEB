@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoElite - Mecánica Profesional en Arequipa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-sans bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container max-w-7xl mx-auto px-4">
+            <a href="index.html" class="logo flex items-center space-x-1">
+                <div class="bg-slate-800 p-2 rounded">
+                    <span class="text-white font-bold text-xl">AUTO</span>
+                    <span class="text-blue-400 font-light text-xl">ELITE</span>
+                </div>
+            </a>
+            <ul class="nav-links hidden md:flex space-x-6 text-sm font-medium">
+                <li><a href="index.html" class="text-red-600 font-bold">Inicio</a></li>
+                <li><a href="servicios.html" class="hover:text-red-600">Servicios</a></li>
+                <li><a href="galeria.html" class="hover:text-red-600">Galería</a></li>
+                <li><a href="nosotros.html" class="hover:text-red-600">Sobre Nosotros</a></li>
+                <li><a href="contacto.html" class="hover:text-red-600">Contacto</a></li>
+            </ul>
+            <div class="flex items-center space-x-3">
+                <button id="dark-mode-btn" class="p-2 rounded-full hover:bg-gray-200" title="Modo oscuro">
+                    <i class="fas fa-moon text-lg"></i>
+                </button>
+                <a href="contacto.html" class="btn btn-primary hidden sm:inline-block text-sm">Pedir Cita</a>
+                <button id="menu-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden fixed inset-0 z-50">
+            <div class="absolute inset-0 bg-black/50" id="menu-overlay"></div>
+            <div class="mobile-menu-panel absolute right-0 top-0 h-full w-72 bg-white shadow-xl p-6 transform translate-x-full transition-transform duration-300">
+                <button id="menu-close" class="text-2xl mb-8"><i class="fas fa-times"></i></button>
+                <ul class="space-y-4 text-lg">
+                    <li><a href="index.html" class="block py-2 hover:text-red-600">Inicio</a></li>
+                    <li><a href="servicios.html" class="block py-2 hover:text-red-600">Servicios</a></li>
+                    <li><a href="galeria.html" class="block py-2 hover:text-red-600">Galería</a></li>
+                    <li><a href="nosotros.html" class="block py-2 hover:text-red-600">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="block py-2 hover:text-red-600">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero relative min-h-screen flex items-center justify-center text-white text-center">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1350&q=80');"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Transforma tu Conducción: <br>Mantenimiento y Rendimiento</h1>
+            <p class="text-lg md:text-xl mb-2 text-gray-300">Mecánica de precisión para que tu vehículo rinda al máximo.</p>
+            <p class="text-xl md:text-2xl mb-8 font-light text-blue-400 h-8"><span id="typing-text"></span><span class="typing-cursor animate-pulse">|</span></p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="servicios.html" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-tools mr-2"></i>Explorar Servicios
+                </a>
+                <a href="contacto.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-calendar-alt mr-2"></i>Pedir Cita
+                </a>
+            </div>
+        </div>
+        <a href="#servicios-preview" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white text-3xl animate-bounce">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- ===================== SERVICIOS PREVIEW ===================== -->
+    <section id="servicios-preview" class="py-20 px-4 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nuestros <span class="text-red-600">Servicios</span></h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Ofrecemos soluciones integrales para el cuidado y rendimiento de tu vehículo, con tecnología de punta y técnicos certificados.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1: Mantenimiento -->
+                <div class="reveal service-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-600">
+                    <div class="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tools text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Mantenimiento</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Servicios preventivos para mantener tu vehículo en óptimas condiciones.</p>
+                </div>
+                <!-- Card 2: Reparaciones -->
+                <div class="reveal service-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-600">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-bolt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Reparaciones</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Diagnóstico y reparación profesional de cualquier falla mecánica.</p>
+                </div>
+                <!-- Card 3: Rendimiento -->
+                <div class="reveal service-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-600">
+                    <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tachometer-alt text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Rendimiento</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Optimización del motor y sistemas para máxima potencia y eficiencia.</p>
+                </div>
+                <!-- Card 4: Repuestos -->
+                <div class="reveal service-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-600">
+                    <div class="w-16 h-16 bg-yellow-100 dark:bg-yellow-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-box text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Repuestos</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Repuestos originales y de alta calidad garantizados para tu auto.</p>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="servicios.html" class="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors">
+                    Ver Todos los Servicios <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CONTADORES ===================== -->
+    <section class="py-16 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="counter-box p-6">
+                    <i class="fas fa-users text-3xl text-red-500 mb-4"></i>
+                    <h3 class="text-4xl md:text-5xl font-bold mb-2"><span class="counter" data-target="500">0</span></h3>
+                    <p class="text-gray-400 text-sm">+ Clientes Satisfechos</p>
+                </div>
+                <div class="counter-box p-6">
+                    <i class="fas fa-award text-3xl text-blue-400 mb-4"></i>
+                    <h3 class="text-4xl md:text-5xl font-bold mb-2"><span class="counter" data-target="10">0</span></h3>
+                    <p class="text-gray-400 text-sm">+ Años de Experiencia</p>
+                </div>
+                <div class="counter-box p-6">
+                    <i class="fas fa-car text-3xl text-green-400 mb-4"></i>
+                    <h3 class="text-4xl md:text-5xl font-bold mb-2"><span class="counter" data-target="300">0</span></h3>
+                    <p class="text-gray-400 text-sm">+ Vehículos Atendidos</p>
+                </div>
+                <div class="counter-box p-6">
+                    <i class="fas fa-check-circle text-3xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-4xl md:text-5xl font-bold mb-2"><span class="counter" data-target="100">0</span>%</h3>
+                    <p class="text-gray-400 text-sm">Calidad Garantizada</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== GALERÍA PREVIEW ===================== -->
+    <section class="py-20 px-4 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nuestros <span class="text-red-600">Trabajos</span></h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Cada proyecto es una muestra de nuestro compromiso con la excelencia y la satisfacción del cliente.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Gallery Card 1 -->
+                <div class="reveal gallery-preview-card group relative overflow-hidden rounded-xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80" alt="Motor Rebuilt" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h4 class="text-white font-bold text-lg">Reconstrucción de Motor</h4>
+                            <p class="text-gray-300 text-sm">Mecánica Especializada</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Card 2 -->
+                <div class="reveal gallery-preview-card group relative overflow-hidden rounded-xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=600&q=80" alt="Car Detailing" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h4 class="text-white font-bold text-lg">Detailing Premium</h4>
+                            <p class="text-gray-300 text-sm">Estética y Acabados</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Card 3 -->
+                <div class="reveal gallery-preview-card group relative overflow-hidden rounded-xl shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=600&q=80" alt="Performance" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div>
+                            <h4 class="text-white font-bold text-lg">Tuning de Alto Rendimiento</h4>
+                            <p class="text-gray-300 text-sm">Personalización</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="galeria.html" class="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors">
+                    Ver Más Trabajos <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== COTIZADOR ===================== -->
+    <section id="cotizador" class="py-20 px-4 bg-white dark:bg-gray-800">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4"><i class="fas fa-calculator text-red-600 mr-2"></i>Cotizador <span class="text-red-600">Rápido</span></h2>
+                <p class="text-gray-600 dark:text-gray-400">Obtén una estimación instantánea del costo de nuestro servicio.</p>
+            </div>
+
+            <!-- Servicios Populares Badge -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8">
+                <span class="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 text-xs font-semibold px-3 py-1 rounded-full"><i class="fas fa-star mr-1"></i>¡Más Popular: Mantenimiento Preventivo</span>
+                <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-semibold px-3 py-1 rounded-full"><i class="fas fa-bolt mr-1"></i>Tuning desde S/ 800</span>
+                <span class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-semibold px-3 py-1 rounded-full"><i class="fas fa-tags mr-1"></i>Descuento flotas: 10%</span>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-gray-700 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-600">
+                <div class="mb-6">
+                    <label for="servicio-select" class="block text-sm font-semibold mb-2">Selecciona un Servicio</label>
+                    <select id="servicio-select" class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-500 dark:bg-gray-600 dark:text-white focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all">
+                        <option value="">-- Elige un servicio --</option>
+                        <option value="120" data-name="Cambio de Aceite">Cambio de Aceite — S/ 120</option>
+                        <option value="200" data-name="Mantenimiento Preventivo">Mantenimiento Preventivo — S/ 200</option>
+                        <option value="150" data-name="Diagnóstico Electrónico">Diagnóstico Electrónico — S/ 150</option>
+                        <option value="500" data-name="Reparación de Motor">Reparación de Motor — S/ 500</option>
+                        <option value="100" data-name="Alineación y Balanceo">Alineación y Balanceo — S/ 100</option>
+                        <option value="800" data-name="Tuning Personalizado">Tuning Personalizado — S/ 800</option>
+                    </select>
+                </div>
+                <div class="mb-6">
+                    <label for="vehiculos-count" class="block text-sm font-semibold mb-2">Cantidad de Vehículos</label>
+                    <input type="number" id="vehiculos-count" min="1" max="20" value="1" class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-500 dark:bg-gray-600 dark:text-white focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all">
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1"><i class="fas fa-info-circle mr-1"></i>3 o más vehículos obtienen 10% de descuento.</p>
+                </div>
+                <button id="calcular-btn" class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-md">
+                    <i class="fas fa-calculator mr-2"></i>Calcular Precio
+                </button>
+
+                <!-- Resultado -->
+                <div id="cotizacion-resultado" class="hidden mt-8 bg-white dark:bg-gray-600 rounded-xl p-6 border border-gray-200 dark:border-gray-500">
+                    <h3 class="font-bold text-lg mb-4 text-slate-800 dark:text-white"><i class="fas fa-receipt mr-2 text-red-600"></i>Resumen de Cotización</h3>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between border-b border-gray-200 dark:border-gray-500 pb-2">
+                            <span class="text-gray-600 dark:text-gray-300">Servicio:</span>
+                            <span id="result-servicio" class="font-semibold">—</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-200 dark:border-gray-500 pb-2">
+                            <span class="text-gray-600 dark:text-gray-300">Precio unitario:</span>
+                            <span id="result-precio" class="font-semibold">S/ 0.00</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-200 dark:border-gray-500 pb-2">
+                            <span class="text-gray-600 dark:text-gray-300">Cantidad:</span>
+                            <span id="result-cantidad" class="font-semibold">0</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-200 dark:border-gray-500 pb-2">
+                            <span class="text-gray-600 dark:text-gray-300">Subtotal:</span>
+                            <span id="result-subtotal" class="font-semibold">S/ 0.00</span>
+                        </div>
+                        <div id="descuento-row" class="hidden flex justify-between text-green-600 dark:text-green-400 pb-2">
+                            <span><i class="fas fa-tag mr-1"></i>Descuento flota (10%):</span>
+                            <span id="result-descuento" class="font-semibold">- S/ 0.00</span>
+                        </div>
+                        <div class="flex justify-between text-lg font-bold text-red-600 dark:text-red-400 pt-2 border-t-2 border-red-200 dark:border-red-800">
+                            <span>Total:</span>
+                            <span id="result-total">S/ 0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== TESTIMONIOS ===================== -->
+    <section class="py-20 px-4 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Lo que Dicen Nuestros <span class="text-red-600">Clientes</span></h2>
+                <p class="text-gray-600 dark:text-gray-400">La satisfacción de nuestros clientes es nuestra mejor carta de presentación.</p>
+            </div>
+            <div class="relative overflow-hidden">
+                <div id="testimonios-carousel" class="flex transition-transform duration-500 ease-in-out">
+                    <!-- Testimonio 1 -->
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg text-center border border-gray-100 dark:border-gray-700">
+                            <div class="w-20 h-20 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-user text-red-600 text-2xl"></i>
+                            </div>
+                            <div class="text-yellow-400 text-xl mb-4">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 italic mb-6">"Excelente servicio. Llevé mi auto para un mantenimiento completo y quedó como nuevo. El equipo es muy profesional y transparente con los costos. Totalmente recomendado."</p>
+                            <h4 class="font-bold text-lg">Carlos M.</h4>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">Toyota Corolla 2021</p>
+                        </div>
+                    </div>
+                    <!-- Testimonio 2 -->
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg text-center border border-gray-100 dark:border-gray-700">
+                            <div class="w-20 h-20 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-user text-blue-600 text-2xl"></i>
+                            </div>
+                            <div class="text-yellow-400 text-xl mb-4">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 italic mb-6">"Increíble atención. Me diagnosticaron un problema eléctrico que otros talleres no pudieron encontrar. El diagnóstico por computadora es preciso y rápido. ¡Volveré siempre!"</p>
+                            <h4 class="font-bold text-lg">María L.</h4>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">Honda Civic 2019</p>
+                        </div>
+                    </div>
+                    <!-- Testimonio 3 -->
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg text-center border border-gray-100 dark:border-gray-700">
+                            <div class="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-user text-green-600 text-2xl"></i>
+                            </div>
+                            <div class="text-yellow-400 text-xl mb-4">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 italic mb-6">"Le hice el tuning completo a mi auto y el resultado superó mis expectativas. Ganas notorias de potencia y el sonido del escape es increíble. Precio justo y trabajo de primera."</p>
+                            <h4 class="font-bold text-lg">José R.</h4>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">Mitsubishi Lancer 2020</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation Dots -->
+                <div class="flex justify-center space-x-3 mt-8">
+                    <button class="testimonio-dot w-3 h-3 rounded-full bg-red-600 transition-all duration-300" data-index="0"></button>
+                    <button class="testimonio-dot w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 transition-all duration-300" data-index="1"></button>
+                    <button class="testimonio-dot w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 transition-all duration-300" data-index="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="bg-slate-900 text-gray-400 py-12 px-4 text-sm">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h4 class="text-white font-bold mb-4">AutoElite</h4>
+                <p>Tu centro integral de cuidado automotriz en Arequipa.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Horarios</h4>
+                <p>Lun - Vie: 8:00 AM - 6:00 PM</p>
+                <p>Sáb: 9:00 AM - 2:00 PM</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Enlaces</h4>
+                <ul class="space-y-2">
+                    <li><a href="servicios.html" class="hover:text-white">Servicios</a></li>
+                    <li><a href="galeria.html" class="hover:text-white">Galería</a></li>
+                    <li><a href="nosotros.html" class="hover:text-white">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="hover:text-white">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Síguenos</h4>
+                <div class="flex space-x-4 text-xl">
+                    <a href="#" class="hover:text-white"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-10 pt-6 text-center">
+            &copy; <span id="current-year"></span> AutoElite. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
